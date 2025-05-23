@@ -1,0 +1,32 @@
+# Config File
+name: "mace_10_training"
+foundation_model: "medium"
+model: "MACE"
+E0s: "{1:-13.656315639066156, 6:-146.65071522867848, 8:-432.2257363227328}"
+model_dir: "MACE_models"
+log_dir: "MACE_models"
+checkpoints_dir: "MACE_models"
+results_dir: "MACE_Train_Results"
+train_file: "/home/CRSid/rds/hpc-work/written_assignment_2/train_validation_test_sets/datasets_training_10/train_10_structures.xyz"
+valid_file: "/home/CRSid/rds/hpc-work/written_assignment_2/train_validation_test_sets/datasets_training_10/val_100_structures.xyz"
+test_file: "/home/CRSid/rds/hpc-work/written_assignment_2/train_validation_test_sets/datasets_training_10/test_50_structures.xyz"
+energy_key: "REF_energy"
+forces_key: "REF_forces"
+pt_train_file: "mp"
+device: cuda
+swa: True
+default_dtype: "float32"
+
+batch_size: 2
+max_num_epochs: 100
+patience: 10
+eval_interval: 5
+valid_batch_size: 2
+
+amsgrad: True
+ema: True
+ema_decay: 0.99
+lr: 0.01
+
+restart_latest: True
+seed: 3

@@ -1,0 +1,40 @@
+# Config File train from scratch
+name: "mace_30_training_scratch"
+model: "MACE"
+E0s: "{1:-13.656315639066156, 6:-146.65071522867848, 8:-432.2257363227328}"
+model_dir: "MACE_models"
+log_dir: "MACE_models"
+checkpoints_dir: "MACE_models"
+results_dir: "MACE_Train_Results"
+train_file: "/data/fast-pc-02/CRSid/fine_tuning_assignment/train_validation_test_sets/re_run_bulk_and_confined_datasets_training_200/train_200_structures.xyz"
+valid_file: "/data/fast-pc-02/CRSid/fine_tuning_assignment/train_validation_test_sets/re_run_bulk_and_confined_datasets_training_200/val_100_structures.xyz"
+test_file: "/data/fast-pc-02/CRSid/fine_tuning_assignment/train_validation_test_sets/re_run_bulk_and_confined_datasets_training_200/test_500_structures.xyz"
+energy_key: "REF_energy"
+forces_key: "REF_forces"
+device: cuda
+swa: True
+default_dtype: "float32"
+
+batch_size: 2
+max_num_epochs: 4000
+patience: 50
+eval_interval: 25
+valid_batch_size: 2
+
+amsgrad: True
+ema: True
+ema_decay: 0.99
+lr: 0.01
+num_channels: 128
+max_L: 1
+max_ell: 3
+r_max: 6.0
+correlation: 3
+#hidden_irreps: "256x0e"
+
+stress_weight: 0.0
+forces_weight: 10.0
+energy_weight: 1.0
+
+restart_latest: True
+seed: 39
